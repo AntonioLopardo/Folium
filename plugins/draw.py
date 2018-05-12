@@ -82,11 +82,10 @@ class Draw(MacroElement):
         figure = self.get_root()
         assert isinstance(figure, Figure), ('You cannot render this Element '
                                             'if it is not in a Figure.')
-
         figure.header.add_child(
-            JavascriptLink('https://cdn.rawgit.com/Leaflet/Leaflet.draw/v0.4.12/dist/leaflet.draw.js'))
+            JavascriptLink('https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js'))
         figure.header.add_child(
-            CssLink('https://cdn.rawgit.com/Leaflet/Leaflet.draw/v0.4.12/dist/leaflet.draw.css'))
+            CssLink('https://raw.githubusercontent.com/Leaflet/Leaflet.draw/v1.0.2/src/leaflet.draw.css'))
 
         export_style = """<style>
         #export {
@@ -105,7 +104,7 @@ class Draw(MacroElement):
         top: 50px;
         }
         </style>"""
-        export_button = """<a href='#' id='export'>Export</a>"""
+        export_button = """<a href='#' id='export'>Export-t</a>"""
         if self.export:
             figure.header.add_child(Element(export_style), name='export')
             figure.html.add_child(Element(export_button), name='export_button')
